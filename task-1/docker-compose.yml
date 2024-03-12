@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_ADDR=redis
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
